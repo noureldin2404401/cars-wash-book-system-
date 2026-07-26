@@ -1,16 +1,10 @@
-/* ============================================================
-   booking.css  —  SparkleWash Booking Page Styles
-   Member 2 | External CSS file for booking.html
-   ============================================================ */
 
-
-/* ── Booking page body override ──────────────────────────── */
 .booking-page {
     background: var(--gray-50);
 }
 
 
-/* ── Navbar: force "scrolled" look on interior pages ─────── */
+
 .booking-page .navbar {
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
@@ -40,7 +34,7 @@
 }
 
 
-/* ── Hero banner ─────────────────────────────────────────── */
+
 .booking-hero {
     position: relative;
     padding: 140px 0 70px;
@@ -103,7 +97,7 @@
 }
 
 
-/* ── Main booking section ────────────────────────────────── */
+
 .booking-section {
     padding: 56px 0 100px;
 }
@@ -116,7 +110,7 @@
 }
 
 
-/* ── Summary sidebar ─────────────────────────────────────── */
+
 .booking-summary {
     position: sticky;
     top: 96px;
@@ -212,7 +206,7 @@
     line-height: 1.5;
 }
 
-/* Trust badges */
+
 .trust-badges {
     margin-top: 16px;
     display: flex;
@@ -235,7 +229,7 @@
 }
 
 
-/* ── Booking form wrapper ────────────────────────────────── */
+
 .booking-form-wrapper {
     background: var(--white);
     border: 1px solid var(--gray-200);
@@ -249,7 +243,6 @@
 }
 
 
-/* ── Step indicator ──────────────────────────────────────── */
 .form-steps {
     display: flex;
     align-items: center;
@@ -319,7 +312,7 @@
 }
 
 
-/* ── Step panels ─────────────────────────────────────────── */
+
 .form-step-panel {
     display: none;
     animation: fadeInUp 0.35s ease both;
@@ -330,7 +323,7 @@
 }
 
 
-/* ── Form section headings ───────────────────────────────── */
+
 .form-section-title {
     font-size: 1.5rem;
     color: var(--gray-900);
@@ -344,7 +337,7 @@
 }
 
 
-/* ── Service selector ────────────────────────────────────── */
+
 .service-selector {
     display: flex;
     flex-direction: column;
@@ -357,7 +350,7 @@
     display: block;
 }
 
-/* hide native radio */
+
 .service-option input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -459,7 +452,7 @@
     color: var(--white);
 }
 
-/* Popular badge */
+
 .service-option.popular .service-option-card::after {
     content: '⭐ Most Popular';
     position: absolute;
@@ -475,7 +468,7 @@
 }
 
 
-/* ── Form inputs ─────────────────────────────────────────── */
+
 .form-row {
     margin-bottom: 0;
 }
@@ -558,7 +551,7 @@
 }
 
 
-/* ── Checkbox ────────────────────────────────────────────── */
+
 .checkbox-group {
     margin-top: 4px;
 }
@@ -618,7 +611,7 @@
 }
 
 
-/* ── Error messages ──────────────────────────────────────── */
+
 .field-error {
     font-size: 0.8rem;
     color: var(--error);
@@ -644,7 +637,7 @@
 }
 
 
-/* ── Step navigation buttons ─────────────────────────────── */
+
 .step-nav {
     margin-top: 32px;
 }
@@ -670,7 +663,7 @@
     flex: 1;
 }
 
-/* Submit button loading spinner */
+
 .btn-submit {
     position: relative;
 }
@@ -698,7 +691,7 @@
 }
 
 
-/* ── Success message ─────────────────────────────────────── */
+
 .booking-success {
     display: none;
     text-align: center;
@@ -737,7 +730,7 @@
 }
 
 
-/* ── Responsive ──────────────────────────────────────────── */
+
 @media (max-width: 1024px) {
     .booking-layout {
         grid-template-columns: 300px 1fr;
