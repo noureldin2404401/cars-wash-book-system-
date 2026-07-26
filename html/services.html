@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SparkleWash — Browse our car wash packages: Basic, Premium, VIP Detailing, and Chemical Deep Cleaning. Choose your perfect service and book online.">
+    <title>Our Services | SparkleWash</title>
+
+    <!-- Shared site stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Services-specific stylesheet -->
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+<body class="services-page">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="main-navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-icon">🚿</span>
+                SparkleWash
+            </a>
+
+            <ul class="navbar-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+            </ul>
+
+            <div class="navbar-cta">
+                <a href="booking.html" class="btn btn-primary">Book Now ➜</a>
+            </div>
+
+            <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="services-hero">
+        <div class="services-hero-bg"></div>
+        <div class="container">
+            <div class="services-hero-content">
+                <span class="section-label">Our Services</span>
+                <h1>Choose Your <span class="highlight">Wash Package</span></h1>
+                <p>From a quick exterior rinse to a full interior-and-exterior deep clean — we have the perfect package for every car and every budget.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== SERVICES GRID ===== -->
+    <section class="services-main section">
+        <div class="container">
+
+            <!-- Filter tabs -->
+            <div class="services-filters" id="services-filters">
+                <button class="filter-btn active" data-filter="all">All Packages</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="full">Full Detail</button>
+            </div>
+
+            <!-- Cards grid -->
+            <div class="services-grid" id="services-grid">
+
+                <!-- Basic Wash -->
+                <div class="srv-card reveal" data-service="Basic Wash" data-price="500" data-category="exterior" id="card-basic">
+                    <div class="srv-card-top">
+                        <div class="srv-icon">🚿</div>
+                        <h3>Basic Wash</h3>
+                        <div class="srv-price">500 <span>EGP / wash</span></div>
+                        <p class="srv-desc">Perfect for a quick refresh. Clean exterior, spotless windows, and shiny wheels — in under 30 minutes.</p>
+                    </div>
+                    <ul class="srv-features">
+                        <li><span class="check">✔</span> Exterior hand wash &amp; rinse</li>
+                        <li><span class="check">✔</span> Wheels &amp; tire cleaning</li>
+                        <li><span class="check">✔</span> Exterior dry with microfiber towels</li>
+                        <li><span class="check">✔</span> Window cleaning (outside)</li>
+                        <li class="faded"><span>✗</span> Interior vacuum</li>
+                        <li class="faded"><span>✗</span> Wax or polish</li>
+                    </ul>
+                    <button class="btn srv-select-btn" data-service="Basic Wash" data-price="500">
+                        Select Package
+                    </button>
+                    <div class="srv-selected-badge">✔ Selected</div>
+                </div>
+
+                <!-- Premium Wash -->
+                <div class="srv-card reveal" data-service="Premium Wash" data-price="750" data-category="interior" id="card-premium">
+                    <div class="srv-card-top">
+                        <div class="srv-icon">✨</div>
+                        <h3>Premium Wash</h3>
+                        <div class="srv-price">750 <span>EGP / wash</span></div>
+                        <p class="srv-desc">Inside and out. A full interior vacuum and dashboard wipe-down paired with everything in the Basic wash.</p>
+                    </div>
+                    <ul class="srv-features">
+                        <li><span class="check">✔</span> Everything in Basic Wash</li>
+                        <li><span class="check">✔</span> Full interior vacuum &amp; dusting</li>
+                        <li><span class="check">✔</span> Dashboard &amp; console wipe-down</li>
+                        <li><span class="check">✔</span> Tire shine &amp; wheel polish</li>
+                        <li><span class="check">✔</span> Air freshener application</li>
+                        <li class="faded"><span>✗</span> Wax or paint sealant</li>
+                    </ul>
+                    <button class="btn srv-select-btn" data-service="Premium Wash" data-price="750">
+                        Select Package
+                    </button>
+                    <div class="srv-selected-badge">✔ Selected</div>
+                </div>
+
+                <!-- VIP Detailing -->
+                <div class="srv-card srv-card--popular reveal" data-service="VIP Detailing" data-price="1000" data-category="full" id="card-vip">
+                    <div class="srv-popular-tag">⭐ Most Popular</div>
+                    <div class="srv-card-top">
+                        <div class="srv-icon">👑</div>
+                        <h3>VIP Detailing</h3>
+                        <div class="srv-price">1000 <span>EGP / wash</span></div>
+                        <p class="srv-desc">The showroom finish. Hand wax, leather care, and paint sealant on top of a complete interior and exterior detail.</p>
+                    </div>
+                    <ul class="srv-features">
+                        <li><span class="check">✔</span> Everything in Premium Wash</li>
+                        <li><span class="check">✔</span> Clay bar paint decontamination</li>
+                        <li><span class="check">✔</span> Hand wax &amp; paint sealant</li>
+                        <li><span class="check">✔</span> Leather conditioning &amp; care</li>
+                        <li><span class="check">✔</span> Engine bay cleaning</li>
+                        <li><span class="check">✔</span> Headlight restoration</li>
+                    </ul>
+                    <button class="btn srv-select-btn" data-service="VIP Detailing" data-price="1000">
+                        Select Package
+                    </button>
+                    <div class="srv-selected-badge">✔ Selected</div>
+                </div>
+
+                <!-- Chemical Deep Cleaning -->
+                <div class="srv-card reveal" data-service="Chemical Deep Cleaning" data-price="1500" data-category="full" id="card-deep">
+                    <div class="srv-card-top">
+                        <div class="srv-icon">🧪</div>
+                        <h3>Chemical Deep Cleaning</h3>
+                        <div class="srv-price">1500 <span>EGP / wash</span></div>
+                        <p class="srv-desc">The ultimate treatment. Deep chemical shampoo, stain and odour removal, and full antibacterial sanitisation.</p>
+                    </div>
+                    <ul class="srv-features">
+                        <li><span class="check">✔</span> Everything in VIP Detailing</li>
+                        <li><span class="check">✔</span> Deep chemical interior shampoo</li>
+                        <li><span class="check">✔</span> Stain &amp; odour removal treatment</li>
+                        <li><span class="check">✔</span> Antibacterial sanitisation</li>
+                        <li><span class="check">✔</span> Fabric &amp; carpet deep extraction</li>
+                        <li><span class="check">✔</span> AC vent disinfection &amp; cleaning</li>
+                    </ul>
+                    <button class="btn srv-select-btn" data-service="Chemical Deep Cleaning" data-price="1500">
+                        Select Package
+                    </button>
+                    <div class="srv-selected-badge">✔ Selected</div>
+                </div>
+
+            </div><!-- /services-grid -->
+        </div>
+    </section>
+
+
+    <!-- ===== STICKY SELECTION BAR ===== -->
+    <div class="selection-bar" id="selection-bar" aria-live="polite" aria-label="Selected service summary">
+        <div class="container">
+            <div class="selection-bar-inner">
+                <div class="selection-info">
+                    <span class="selection-icon" id="sel-icon">👑</span>
+                    <div class="selection-text">
+                        <span class="selection-label">Selected Package</span>
+                        <strong class="selection-name" id="sel-name">VIP Detailing</strong>
+                    </div>
+                </div>
+                <div class="selection-price-wrap">
+                    <span class="selection-price-label">Total</span>
+                    <span class="selection-price" id="sel-price">1000 EGP</span>
+                </div>
+                <a href="booking.html" class="btn btn-primary selection-cta" id="sel-book-btn">
+                    Book This Service ➜
+                </a>
+                <button class="selection-clear" id="sel-clear" aria-label="Clear selection">✕</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== COMPARISON TABLE ===== -->
+    <section class="comparison section">
+        <div class="container text-center">
+            <span class="section-label">Compare</span>
+            <h2 class="section-title">Package Comparison</h2>
+            <p class="section-subtitle">Not sure which to pick? See exactly what's included in each package.</p>
+
+            <div class="compare-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th class="compare-feature-col">Feature</th>
+                            <th>Basic<br><span>500 EGP</span></th>
+                            <th>Premium<br><span>750 EGP</span></th>
+                            <th class="popular-col">VIP<br><span>1000 EGP</span></th>
+                            <th>Deep Clean<br><span>1500 EGP</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Exterior Hand Wash</td>
+                            <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Wheel &amp; Tire Cleaning</td>
+                            <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Window Cleaning</td>
+                            <td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Interior Vacuum</td>
+                            <td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Dashboard Wipe-Down</td>
+                            <td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Tire Shine &amp; Wheel Polish</td>
+                            <td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Hand Wax &amp; Paint Sealant</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Leather Conditioning</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Engine Bay Cleaning</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Deep Chemical Shampoo</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Antibacterial Sanitisation</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td>
+                        </tr>
+                        <tr>
+                            <td>AC Vent Disinfection</td>
+                            <td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✔</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready for a Spotless Ride?</h2>
+            <p>Book your appointment today and experience the SparkleWash difference.</p>
+            <a href="booking.html" class="btn btn-white">Book Now — It's Fast &amp; Easy ➜</a>
+        </div>
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="navbar-logo">
+                        <span class="logo-icon">🚿</span>
+                        SparkleWash
+                    </a>
+                    <p>Premium car wash &amp; detailing services. Book online and let us make your car shine.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">🎬</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Admin</h4>
+                    <ul>
+                        <li><a href="admin-login.html">Admin Login</a></li>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="manage-services.html">Manage Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get notified about new services and exclusive deals.</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SparkleWash Car Wash Booking System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Shared site script -->
+    <script src="../js/main.js"></script>
+    <!-- Services-specific script -->
+    <script src="../js/services.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+/* ============================================================
+   services.css  —  SparkleWash Services Page Styles
+   Member 3 | External CSS file for services.html
+   ============================================================ */
+
+
+/* ── Services page body ──────────────────────────────────── */
+.services-page {
+    background: var(--gray-50);
+}
+
+
+/* ── Navbar: scrolled look on interior pages ─────────────── */
+.services-page .navbar {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-md);
+    padding: 12px 0;
+}
+
+.services-page .navbar .navbar-logo {
+    color: var(--primary-700);
+}
+
+.services-page .navbar .navbar-links a {
+    color: var(--gray-600);
+}
+
+.services-page .navbar .navbar-links a:hover {
+    color: var(--primary-500);
+}
+
+.services-page .navbar .navbar-links a.active {
+    color: var(--primary-600);
+}
+
+.services-page .navbar .navbar-links a.active::after {
+    width: 100%;
+    background: var(--primary-500);
+}
+
+.services-page .navbar .navbar-toggle span {
+    background: var(--gray-700);
+}
+
+
+/* ── Hero banner ─────────────────────────────────────────── */
+.services-hero {
+    position: relative;
+    padding: 140px 0 70px;
+    overflow: hidden;
+}
+
+.services-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 55%, var(--primary-500) 100%);
+    z-index: 0;
+}
+
+.services-hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, var(--gray-50), transparent);
+}
+
+.services-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.services-hero-content {
+    text-align: center;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.services-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+
+.services-hero-content h1 .highlight {
+    background: linear-gradient(135deg, #7ab3fe, #a9d0fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services-hero-content p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.services-hero-content .section-label {
+    margin-bottom: 20px;
+}
+
+
+/* ── Filter tabs ─────────────────────────────────────────── */
+.services-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    color: var(--gray-600);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-300);
+    color: var(--primary-500);
+}
+
+.filter-btn.active {
+    background: var(--primary-500);
+    border-color: var(--primary-500);
+    color: var(--white);
+    box-shadow: var(--shadow-blue);
+}
+
+
+/* ── Services grid ───────────────────────────────────────── */
+.services-main {
+    background: var(--gray-50);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+
+/* ── Service card ────────────────────────────────────────── */
+.srv-card {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+/* Top accent line */
+.srv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-400), var(--primary-600));
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.srv-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-200);
+}
+
+.srv-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Selected state */
+.srv-card.selected {
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(26, 122, 252, 0.15), var(--shadow-lg);
+    transform: translateY(-6px);
+}
+
+.srv-card.selected::before {
+    transform: scaleX(1);
+}
+
+/* Hidden state (filtered out) */
+.srv-card.hidden {
+    display: none;
+}
+
+/* Popular badge */
+.srv-card--popular {
+    border-color: var(--primary-300);
+}
+
+.srv-popular-tag {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--warning);
+    background: rgba(245, 158, 11, 0.12);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.3px;
+}
+
+
+/* ── Card inner sections ─────────────────────────────────── */
+.srv-card-top {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.srv-icon {
+    font-size: 2.8rem;
+    margin-bottom: 14px;
+    display: block;
+    transition: transform var(--transition-base);
+}
+
+.srv-card:hover .srv-icon,
+.srv-card.selected .srv-icon {
+    transform: scale(1.1);
+}
+
+.srv-card h3 {
+    font-size: 1.2rem;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+}
+
+.srv-price {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-600);
+    margin-bottom: 12px;
+}
+
+.srv-price span {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+
+.srv-desc {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+
+/* ── Feature list ────────────────────────────────────────── */
+.srv-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    flex: 1;
+}
+
+.srv-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gray-700);
+    line-height: 1.4;
+}
+
+.srv-features li .check {
+    color: var(--primary-500);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.srv-features li.faded {
+    color: var(--gray-300);
+}
+
+.srv-features li.faded span {
+    color: var(--gray-300);
+}
+
+
+/* ── Select button ───────────────────────────────────────── */
+.srv-select-btn {
+    width: 100%;
+    justify-content: center;
+    border: 2px solid var(--primary-300);
+    color: var(--primary-500);
+    background: transparent;
+    padding: 12px 20px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: all var(--transition-base);
+}
+
+.srv-select-btn:hover {
+    background: var(--primary-50);
+    border-color: var(--primary-500);
+}
+
+.srv-card.selected .srv-select-btn {
+    background: var(--primary-500);
+    border-color: var(--primary-500);
+    color: var(--white);
+    box-shadow: var(--shadow-blue);
+}
+
+
+/* ── "Selected" overlay badge on card ────────────────────── */
+.srv-selected-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--primary-500);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all var(--transition-base);
+    pointer-events: none;
+}
+
+.srv-card.selected .srv-selected-badge {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ── Sticky selection bar (appears after choosing a service) */
+.selection-bar {
+    position: fixed;
+    bottom: -100px;           /* starts off-screen */
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
+    z-index: 900;
+    padding: 14px 0;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selection-bar.visible {
+    bottom: 0;
+}
+
+.selection-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.selection-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+.selection-icon {
+    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-50);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.selection-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.selection-label {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.selection-name {
+    font-size: 1.05rem;
+    color: var(--gray-900);
+    font-weight: 700;
+}
+
+.selection-price-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.selection-price-label {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.selection-price {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-600);
+}
+
+.selection-cta {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.selection-clear {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: none;
+    cursor: pointer;
+    color: var(--gray-500);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.selection-clear:hover {
+    background: var(--error);
+    color: var(--white);
+}
+
+
+/* ── Comparison table ────────────────────────────────────── */
+.comparison {
+    background: var(--white);
+}
+
+.compare-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+.compare-table thead th {
+    background: var(--primary-700);
+    color: var(--white);
+    padding: 18px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.compare-table thead th:first-child {
+    text-align: left;
+    background: var(--primary-800);
+}
+
+.compare-table thead th.popular-col {
+    background: var(--primary-500);
+}
+
+.compare-table thead th span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+.compare-table tbody tr {
+    border-bottom: 1px solid var(--gray-100);
+    transition: background var(--transition-fast);
+}
+
+.compare-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.compare-table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+.compare-table tbody td {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    text-align: center;
+    border-right: 1px solid var(--gray-100);
+}
+
+.compare-table tbody td:first-child,
+.compare-table tbody .compare-feature-col {
+    text-align: left;
+    font-weight: 500;
+    color: var(--gray-800);
+    background: var(--gray-50);
+}
+
+.compare-table td.popular-col {
+    background: rgba(26, 122, 252, 0.04);
+}
+
+.compare-table td.yes {
+    color: var(--primary-500);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.compare-table td.no {
+    color: var(--gray-300);
+    font-size: 1rem;
+}
+
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .selection-bar-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .selection-info {
+        flex: 1 1 100%;
+    }
+
+    .selection-price-wrap {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .selection-cta {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 120px 0 56px;
+    }
+
+    .services-hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}

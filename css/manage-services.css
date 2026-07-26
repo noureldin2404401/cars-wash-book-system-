@@ -1,0 +1,493 @@
+/* ============================================================
+   manage-services.css  —  SparkleWash Manage Services Page
+   Member 5 | External CSS file for manage-services.html
+   ============================================================ */
+
+
+/* ── Two-column layout ───────────────────────────────────── */
+.ms-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+
+/* ── Shared card shell ───────────────────────────────────── */
+.ms-card {
+    background: var(--white);
+    border: 1px solid var(--dash-border, #e2e8f0);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.ms-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--gray-100);
+    background: var(--gray-50);
+}
+
+.ms-card-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-50);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.ms-card-title {
+    font-size: 1.05rem;
+    color: var(--gray-900);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.ms-card-subtitle {
+    font-size: 0.82rem;
+    color: var(--gray-500);
+}
+
+
+/* ── Success alert banner ────────────────────────────────── */
+.ms-alert {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    margin: 16px 24px 0;
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 500;
+    animation: fadeInUp 0.3s ease both;
+}
+
+.ms-alert.visible {
+    display: flex;
+}
+
+.ms-alert-success {
+    background: rgba(16, 185, 129, 0.09);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #059669;
+}
+
+
+/* ── Form layout ─────────────────────────────────────────── */
+.ms-form {
+    padding: 20px 24px 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.required {
+    color: var(--error);
+    margin-left: 2px;
+}
+
+.optional {
+    color: var(--gray-400);
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+.form-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--gray-800);
+    font-size: 0.92rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-base);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--gray-400);
+}
+
+.form-input:focus {
+    border-color: var(--primary-400);
+    box-shadow: 0 0 0 3px rgba(26, 122, 252, 0.1);
+}
+
+.form-input.input-error {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.09);
+}
+
+.form-input.input-success {
+    border-color: var(--success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.09);
+}
+
+/* Select */
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* Textarea */
+.form-textarea {
+    resize: vertical;
+    min-height: 88px;
+    line-height: 1.6;
+}
+
+/* Price input with suffix */
+.price-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.price-input-wrap .form-input {
+    padding-right: 54px;
+}
+
+.price-suffix {
+    position: absolute;
+    right: 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-500);
+    pointer-events: none;
+}
+
+/* Character counter */
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    margin-top: 4px;
+}
+
+/* Field error */
+.field-error {
+    font-size: 0.8rem;
+    color: var(--error);
+    margin-top: 6px;
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all var(--transition-fast);
+}
+
+.field-error.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.field-error::before {
+    content: '⚠';
+    font-size: 0.75rem;
+}
+
+
+/* ── Features list inputs ────────────────────────────────── */
+.features-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.feature-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-input-row .form-input {
+    flex: 1;
+}
+
+.feature-remove-btn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--gray-500);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.feature-remove-btn:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--error);
+    color: var(--error);
+}
+
+.feature-remove-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.btn-add-feature {
+    background: none;
+    border: none;
+    color: var(--primary-500);
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color var(--transition-fast);
+}
+
+.btn-add-feature:hover {
+    color: var(--primary-700);
+}
+
+
+/* ── Form action buttons ─────────────────────────────────── */
+.ms-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ms-submit-btn {
+    flex: 1;
+    justify-content: center;
+    position: relative;
+}
+
+.btn-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.ms-submit-btn.loading .btn-text {
+    opacity: 0.6;
+}
+
+.ms-submit-btn.loading .btn-spinner {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ── Services list (right panel) ─────────────────────────── */
+.ms-list-col {
+    position: sticky;
+    top: 96px;
+}
+
+.services-list {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.services-empty {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--gray-400);
+    font-size: 0.9rem;
+}
+
+/* Individual service row card */
+.svc-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.3s ease both;
+}
+
+.svc-row:hover {
+    border-color: var(--primary-200);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Default / "preset" row style */
+.svc-row.preset {
+    border-left: 3px solid var(--primary-300);
+}
+
+/* Newly added row style */
+.svc-row.added {
+    border-left: 3px solid var(--success);
+}
+
+.svc-row-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+}
+
+.svc-row-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.svc-row-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gray-900);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.svc-row-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.svc-row-price {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--primary-600);
+}
+
+.svc-row-cat {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--primary-50);
+    color: var(--primary-700);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+}
+
+.svc-row-duration {
+    font-size: 0.78rem;
+    color: var(--gray-400);
+}
+
+.svc-row-desc {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-top: 5px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.svc-delete-btn {
+    background: none;
+    border: none;
+    color: var(--gray-300);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.svc-delete-btn:hover {
+    color: var(--error);
+    background: rgba(239, 68, 68, 0.08);
+}
+
+/* NEW badge on freshly added services */
+.svc-new-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: var(--success);
+    color: var(--white);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.3px;
+}
+
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ms-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ms-list-col {
+        position: static;
+    }
+
+    .services-list {
+        max-height: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .ms-form {
+        padding: 16px;
+    }
+
+    .ms-card-header {
+        padding: 16px;
+    }
+
+    .ms-form-actions {
+        flex-direction: column;
+    }
+
+    .ms-form-actions .btn-outline {
+        width: 100%;
+        justify-content: center;
+    }
+}

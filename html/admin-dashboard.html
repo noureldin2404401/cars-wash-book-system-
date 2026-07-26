@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SparkleWash Admin Dashboard — View and manage all customer bookings.">
+    <title>Admin Dashboard | SparkleWash</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span class="logo-icon">🚿</span>
+            <span class="sidebar-logo-text">SparkleWash</span>
+        </div>
+
+        <div class="sidebar-section-label">Main Menu</div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="sidebar-link active">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="manage-services.html" class="sidebar-link">
+                <span class="sidebar-icon">🛠️</span>
+                <span>Manage Services</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-section-label">Customer Site</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">🏠</span>
+                <span>Home Page</span>
+            </a>
+            <a href="services.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">✨</span>
+                <span>Services</span>
+            </a>
+            <a href="booking.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">📅</span>
+                <span>Booking Form</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="sidebar-logout-btn" id="logout-btn">
+                <span class="sidebar-icon">🔓</span>
+                <span>Logout</span>
+            </button>
+        </div>
+
+        <button class="sidebar-toggle-btn" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="dashboard-main" id="dashboard-main">
+
+        <!-- Top bar -->
+        <header class="dash-topbar">
+            <div class="dash-topbar-left">
+                <button class="topbar-menu-btn" id="sidebar-open" aria-label="Open sidebar">☰</button>
+                <div class="dash-breadcrumb">
+                    <span>Admin</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current">Dashboard</span>
+                </div>
+            </div>
+            <div class="dash-topbar-right">
+                <div class="topbar-time" id="topbar-time"></div>
+                <div class="topbar-admin">
+                    <div class="topbar-avatar">A</div>
+                    <span>admin@gmail.com</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page content -->
+        <div class="dash-content">
+
+            <!-- Stat cards -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-card-icon">📋</div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-value" id="stat-total">0</span>
+                        <span class="stat-card-label">Total Bookings</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background:rgba(16,185,129,0.1);color:#10b981;">✅</div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-value" id="stat-confirmed">0</span>
+                        <span class="stat-card-label">Confirmed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b;">⏳</div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-value" id="stat-pending">0</span>
+                        <span class="stat-card-label">Pending</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon" style="background:rgba(239,68,68,0.1);color:#ef4444;">❌</div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-value" id="stat-cancelled">0</span>
+                        <span class="stat-card-label">Cancelled</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings table -->
+            <div class="table-section">
+
+                <div class="table-header">
+                    <h2 class="table-title">Customer Bookings</h2>
+
+                    <div class="table-controls">
+                        <!-- Search -->
+                        <div class="search-wrap">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="search-input"
+                                class="search-input"
+                                placeholder="Search by name, phone, or email…"
+                                aria-label="Search bookings"
+                            >
+                            <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+                        </div>
+
+                        <!-- Filter by status -->
+                        <select id="status-filter" class="dash-select" aria-label="Filter by status">
+                            <option value="all">All Statuses</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+
+                        <!-- Sort -->
+                        <select id="date-sort" class="dash-select" aria-label="Sort by date">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="table-results-count" id="results-count">Showing all bookings</p>
+
+                <div class="table-wrap">
+                    <table class="bookings-table" id="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Customer Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Car</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-tbody"></tbody>
+                    </table>
+
+                    <div class="table-empty" id="table-empty">
+                        <span>🔍</span>
+                        <p>No bookings match your search.</p>
+                        <button class="btn btn-outline" id="reset-filters">Reset Filters</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+</html>

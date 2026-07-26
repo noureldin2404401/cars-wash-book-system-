@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SparkleWash Admin — Manage wash services, add new packages and update pricing.">
+    <title>Manage Services | SparkleWash</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/manage-services.css">
+</head>
+<body class="dashboard-page">
+
+    <!-- ===== SIDEBAR (same as dashboard) ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span class="logo-icon">🚿</span>
+            <span class="sidebar-logo-text">SparkleWash</span>
+        </div>
+
+        <div class="sidebar-section-label">Main Menu</div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="sidebar-link">
+                <span class="sidebar-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="manage-services.html" class="sidebar-link active">
+                <span class="sidebar-icon">🛠️</span>
+                <span>Manage Services</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-section-label">Customer Site</div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">🏠</span>
+                <span>Home Page</span>
+            </a>
+            <a href="services.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">✨</span>
+                <span>Services</span>
+            </a>
+            <a href="booking.html" class="sidebar-link" target="_blank">
+                <span class="sidebar-icon">📅</span>
+                <span>Booking Form</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="sidebar-logout-btn" id="logout-btn">
+                <span class="sidebar-icon">🔓</span>
+                <span>Logout</span>
+            </button>
+        </div>
+
+        <button class="sidebar-toggle-btn" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="dashboard-main">
+
+        <!-- Top bar -->
+        <header class="dash-topbar">
+            <div class="dash-topbar-left">
+                <button class="topbar-menu-btn" id="sidebar-open" aria-label="Open sidebar">☰</button>
+                <div class="dash-breadcrumb">
+                    <span>Admin</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current">Manage Services</span>
+                </div>
+            </div>
+            <div class="dash-topbar-right">
+                <div class="topbar-time" id="topbar-time"></div>
+                <div class="topbar-admin">
+                    <div class="topbar-avatar">A</div>
+                    <span>admin@gmail.com</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page content -->
+        <div class="dash-content">
+
+            <div class="ms-layout">
+
+                <!-- ── LEFT: Add New Service Form ── -->
+                <div class="ms-form-col">
+                    <div class="ms-card">
+                        <div class="ms-card-header">
+                            <span class="ms-card-icon">➕</span>
+                            <div>
+                                <h2 class="ms-card-title">Add New Service</h2>
+                                <p class="ms-card-subtitle">Fill in the details to create a new wash package.</p>
+                            </div>
+                        </div>
+
+                        <!-- Success alert -->
+                        <div class="ms-alert ms-alert-success" id="form-success" role="alert" aria-live="polite">
+                            <span>✅</span>
+                            <span id="form-success-text">Service added successfully!</span>
+                        </div>
+
+                        <form class="ms-form" id="add-service-form" novalidate>
+
+                            <!-- Service Name -->
+                            <div class="form-group">
+                                <label for="svc-name" class="form-label">
+                                    🏷️ Service Name <span class="required">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="svc-name"
+                                    name="svc-name"
+                                    class="form-input"
+                                    placeholder="e.g. Platinum Wash"
+                                    maxlength="60"
+                                    required
+                                    aria-describedby="error-svc-name"
+                                >
+                                <p class="field-error" id="error-svc-name" role="alert"></p>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="form-group">
+                                <label for="svc-category" class="form-label">
+                                    📂 Category <span class="required">*</span>
+                                </label>
+                                <select id="svc-category" name="svc-category" class="form-input form-select" required aria-describedby="error-svc-category">
+                                    <option value="">— Select a category —</option>
+                                    <option value="Exterior">Exterior</option>
+                                    <option value="Interior">Interior</option>
+                                    <option value="Full Detail">Full Detail</option>
+                                </select>
+                                <p class="field-error" id="error-svc-category" role="alert"></p>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="form-group">
+                                <label for="svc-price" class="form-label">
+                                    💰 Price (EGP) <span class="required">*</span>
+                                </label>
+                                <div class="price-input-wrap">
+                                    <input
+                                        type="number"
+                                        id="svc-price"
+                                        name="svc-price"
+                                        class="form-input"
+                                        placeholder="e.g. 850"
+                                        min="1"
+                                        max="99999"
+                                        step="1"
+                                        required
+                                        aria-describedby="error-svc-price"
+                                    >
+                                    <span class="price-suffix">EGP</span>
+                                </div>
+                                <p class="field-error" id="error-svc-price" role="alert"></p>
+                            </div>
+
+                            <!-- Duration -->
+                            <div class="form-group">
+                                <label for="svc-duration" class="form-label">
+                                    ⏱️ Duration (minutes) <span class="required">*</span>
+                                </label>
+                                <input
+                                    type="number"
+                                    id="svc-duration"
+                                    name="svc-duration"
+                                    class="form-input"
+                                    placeholder="e.g. 45"
+                                    min="5"
+                                    max="480"
+                                    step="5"
+                                    required
+                                    aria-describedby="error-svc-duration"
+                                >
+                                <p class="field-error" id="error-svc-duration" role="alert"></p>
+                            </div>
+
+                            <!-- Icon / Emoji -->
+                            <div class="form-group">
+                                <label for="svc-icon" class="form-label">
+                                    🎨 Icon (Emoji) <span class="optional">(Optional)</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="svc-icon"
+                                    name="svc-icon"
+                                    class="form-input"
+                                    placeholder="e.g. 🌟"
+                                    maxlength="4"
+                                >
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group">
+                                <label for="svc-description" class="form-label">
+                                    📝 Description <span class="required">*</span>
+                                </label>
+                                <textarea
+                                    id="svc-description"
+                                    name="svc-description"
+                                    class="form-input form-textarea"
+                                    placeholder="Briefly describe what this service includes…"
+                                    rows="3"
+                                    maxlength="300"
+                                    required
+                                    aria-describedby="error-svc-description"
+                                ></textarea>
+                                <div class="char-count">
+                                    <span id="char-count">0</span>/300
+                                </div>
+                                <p class="field-error" id="error-svc-description" role="alert"></p>
+                            </div>
+
+                            <!-- Features list -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    ✔ Key Features <span class="required">*</span>
+                                </label>
+                                <p class="form-hint">Add at least 2 features included in this service.</p>
+                                <div class="features-inputs" id="features-inputs">
+                                    <div class="feature-input-row">
+                                        <input type="text" class="form-input feature-input" placeholder="e.g. Exterior hand wash" maxlength="80">
+                                        <button type="button" class="feature-remove-btn" aria-label="Remove feature" disabled>✕</button>
+                                    </div>
+                                    <div class="feature-input-row">
+                                        <input type="text" class="form-input feature-input" placeholder="e.g. Window cleaning" maxlength="80">
+                                        <button type="button" class="feature-remove-btn" aria-label="Remove feature" disabled>✕</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add-feature" id="add-feature-btn">
+                                    + Add Feature
+                                </button>
+                                <p class="field-error" id="error-features" role="alert"></p>
+                            </div>
+
+                            <div class="ms-form-actions">
+                                <button type="button" class="btn btn-outline" id="reset-form-btn">
+                                    Reset
+                                </button>
+                                <button type="submit" class="btn btn-primary ms-submit-btn" id="ms-submit">
+                                    <span class="btn-text">Add Service ✔</span>
+                                    <span class="btn-spinner" aria-hidden="true"></span>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ── RIGHT: Existing Services List ── -->
+                <div class="ms-list-col">
+                    <div class="ms-card">
+                        <div class="ms-card-header">
+                            <span class="ms-card-icon">📋</span>
+                            <div>
+                                <h2 class="ms-card-title">Current Services</h2>
+                                <p class="ms-card-subtitle">All active wash packages — click the trash icon to remove.</p>
+                            </div>
+                        </div>
+
+                        <div class="services-list" id="services-list">
+                            <!-- Populated by manage-services.js -->
+                        </div>
+
+                        <p class="services-empty" id="services-empty" style="display:none;">
+                            No services yet. Add one using the form.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- /dash-content -->
+    </div><!-- /dashboard-main -->
+
+    <script src="../js/main.js"></script>
+    <script src="../js/manage-services.js"></script>
+
+</body>
+</html>
