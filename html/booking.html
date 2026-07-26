@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your premium car wash appointment at SparkleWash. Choose a date, time, and service — quick and easy online booking.">
+    <title>Book an Appointment | SparkleWash</title>
+
+    <!-- Shared site stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Booking-specific stylesheet -->
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body class="booking-page">
+
+    <!-- ===== NAVBAR (identical to index.html, always scrolled on interior pages) ===== -->
+    <nav class="navbar scrolled" id="main-navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-icon">🚿</span>
+                SparkleWash
+            </a>
+
+            <ul class="navbar-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+            </ul>
+
+            <div class="navbar-cta">
+                <a href="booking.html" class="btn btn-primary active-page">Book Now ➜</a>
+            </div>
+
+            <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="booking-hero">
+        <div class="booking-hero-bg"></div>
+        <div class="container">
+            <div class="booking-hero-content">
+                <span class="section-label">Online Booking</span>
+                <h1>Book Your <span class="highlight">Car Wash</span> Appointment</h1>
+                <p>Fill in the form below to secure your slot. We'll take care of the rest — just show up and shine!</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== BOOKING SECTION ===== -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-layout">
+
+                <!-- ── LEFT: Summary Card ── -->
+                <aside class="booking-summary" id="booking-summary">
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <span class="summary-icon">📋</span>
+                            <h3>Booking Summary</h3>
+                        </div>
+
+                        <div class="summary-service" id="summary-service">
+                            <span class="summary-label">Selected Service</span>
+                            <span class="summary-value" id="sum-service">—</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Date</span>
+                            <span class="summary-value" id="sum-date">—</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Time</span>
+                            <span class="summary-value" id="sum-time">—</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-price-row">
+                            <span class="summary-label">Total Price</span>
+                            <span class="summary-price" id="sum-price">— EGP</span>
+                        </div>
+
+                        <div class="summary-note">
+                            <span>💳</span>
+                            Payment is collected on arrival. No upfront charges.
+                        </div>
+                    </div>
+
+                    <!-- Trust badges -->
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <span>🛡️</span>
+                            <span>Secure Booking</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span>✔️</span>
+                            <span>Instant Confirmation</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span>🔄</span>
+                            <span>Free Cancellation</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- ── RIGHT: Booking Form ── -->
+                <main class="booking-form-wrapper">
+
+                    <!-- Success message (hidden by default) -->
+                    <div class="booking-success" id="booking-success" role="alert" aria-live="polite">
+                        <div class="success-icon">✅</div>
+                        <h2>Booking Confirmed!</h2>
+                        <p>Thank you, <strong id="success-name"></strong>! Your appointment has been successfully booked. We'll see you on <strong id="success-date"></strong> at <strong id="success-time"></strong>.</p>
+                        <a href="index.html" class="btn btn-primary">← Back to Home</a>
+                    </div>
+
+                    <form class="booking-form" id="booking-form" novalidate>
+
+                        <!-- Step indicator -->
+                        <div class="form-steps">
+                            <div class="form-step active" id="step-indicator-1">
+                                <span class="step-dot">1</span>
+                                <span class="step-label">Service</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="form-step" id="step-indicator-2">
+                                <span class="step-dot">2</span>
+                                <span class="step-label">Date & Time</span>
+                            </div>
+                            <div class="step-connector"></div>
+                            <div class="form-step" id="step-indicator-3">
+                                <span class="step-dot">3</span>
+                                <span class="step-label">Your Details</span>
+                            </div>
+                        </div>
+
+                        <!-- ─── STEP 1: Choose Service ─── -->
+                        <div class="form-step-panel active" id="step-panel-1">
+                            <h2 class="form-section-title">Choose Your Service</h2>
+                            <p class="form-section-subtitle">Select the wash package that suits your needs.</p>
+
+                            <div class="service-selector" id="service-selector" role="radiogroup" aria-label="Car wash service selection">
+                                <label class="service-option" for="service-basic">
+                                    <input type="radio" name="service" id="service-basic" value="Basic Wash" data-price="500" required>
+                                    <div class="service-option-card">
+                                        <div class="service-option-icon">🚿</div>
+                                        <div class="service-option-info">
+                                            <strong>Basic Wash</strong>
+                                            <span>Exterior hand wash, wheels & window cleaning</span>
+                                        </div>
+                                        <div class="service-option-price">500 EGP</div>
+                                        <div class="service-option-check">✔</div>
+                                    </div>
+                                </label>
+
+                                <label class="service-option" for="service-premium">
+                                    <input type="radio" name="service" id="service-premium" value="Premium Wash" data-price="750">
+                                    <div class="service-option-card">
+                                        <div class="service-option-icon">✨</div>
+                                        <div class="service-option-info">
+                                            <strong>Premium Wash</strong>
+                                            <span>Basic + full interior vacuum, tire shine & air freshener</span>
+                                        </div>
+                                        <div class="service-option-price">750 EGP</div>
+                                        <div class="service-option-check">✔</div>
+                                    </div>
+                                </label>
+
+                                <label class="service-option popular" for="service-vip">
+                                    <input type="radio" name="service" id="service-vip" value="VIP Detailing" data-price="1000">
+                                    <div class="service-option-card">
+                                        <div class="service-option-icon">👑</div>
+                                        <div class="service-option-info">
+                                            <strong>VIP Detailing</strong>
+                                            <span>Premium + clay bar, hand wax, leather conditioning</span>
+                                        </div>
+                                        <div class="service-option-price">1000 EGP</div>
+                                        <div class="service-option-check">✔</div>
+                                    </div>
+                                </label>
+
+                                <label class="service-option" for="service-deep">
+                                    <input type="radio" name="service" id="service-deep" value="Chemical Deep Cleaning" data-price="1500">
+                                    <div class="service-option-card">
+                                        <div class="service-option-icon">🧪</div>
+                                        <div class="service-option-info">
+                                            <strong>Chemical Deep Cleaning</strong>
+                                            <span>VIP + deep interior shampoo, stain removal & sanitization</span>
+                                        </div>
+                                        <div class="service-option-price">1500 EGP</div>
+                                        <div class="service-option-check">✔</div>
+                                    </div>
+                                </label>
+                            </div>
+                            <p class="field-error" id="error-service" role="alert"></p>
+
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-primary" id="btn-step1-next">
+                                    Next: Pick Date & Time ➜
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ─── STEP 2: Date & Time ─── -->
+                        <div class="form-step-panel" id="step-panel-2">
+                            <h2 class="form-section-title">Pick a Date & Time</h2>
+                            <p class="form-section-subtitle">Choose a convenient slot. Same-day bookings are welcome!</p>
+
+                            <div class="form-row two-col">
+                                <div class="form-group">
+                                    <label for="booking-date" class="form-label">
+                                        📅 Appointment Date <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="date"
+                                        id="booking-date"
+                                        name="booking-date"
+                                        class="form-input"
+                                        required
+                                        aria-describedby="error-date"
+                                    >
+                                    <p class="field-error" id="error-date" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="booking-time" class="form-label">
+                                        🕐 Preferred Time <span class="required">*</span>
+                                    </label>
+                                    <select id="booking-time" name="booking-time" class="form-input form-select" required aria-describedby="error-time">
+                                        <option value="">— Select a time slot —</option>
+                                        <option value="08:00 AM">08:00 AM</option>
+                                        <option value="09:00 AM">09:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="01:00 PM">01:00 PM</option>
+                                        <option value="02:00 PM">02:00 PM</option>
+                                        <option value="03:00 PM">03:00 PM</option>
+                                        <option value="04:00 PM">04:00 PM</option>
+                                        <option value="05:00 PM">05:00 PM</option>
+                                        <option value="06:00 PM">06:00 PM</option>
+                                    </select>
+                                    <p class="field-error" id="error-time" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <div class="step-nav step-nav-dual">
+                                <button type="button" class="btn btn-outline" id="btn-step2-back">
+                                    ← Back
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btn-step2-next">
+                                    Next: Your Details ➜
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ─── STEP 3: Personal Details ─── -->
+                        <div class="form-step-panel" id="step-panel-3">
+                            <h2 class="form-section-title">Your Personal Details</h2>
+                            <p class="form-section-subtitle">We need a few details to confirm your booking.</p>
+
+                            <div class="form-row two-col">
+                                <div class="form-group">
+                                    <label for="first-name" class="form-label">
+                                        👤 First Name <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="first-name"
+                                        name="first-name"
+                                        class="form-input"
+                                        placeholder="e.g. Ahmed"
+                                        required
+                                        aria-describedby="error-first-name"
+                                    >
+                                    <p class="field-error" id="error-first-name" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="last-name" class="form-label">
+                                        👤 Last Name <span class="required">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="last-name"
+                                        name="last-name"
+                                        class="form-input"
+                                        placeholder="e.g. Hassan"
+                                        required
+                                        aria-describedby="error-last-name"
+                                    >
+                                    <p class="field-error" id="error-last-name" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    📧 Email Address <span class="required">*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-input"
+                                    placeholder="e.g. ahmed@example.com"
+                                    required
+                                    aria-describedby="error-email"
+                                >
+                                <p class="field-error" id="error-email" role="alert"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">
+                                    📱 Phone Number <span class="required">*</span>
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    class="form-input"
+                                    placeholder="e.g. 01012345678"
+                                    required
+                                    aria-describedby="error-phone"
+                                >
+                                <p class="field-error" id="error-phone" role="alert"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="car-model" class="form-label">
+                                    🚗 Car Make & Model <span class="required">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="car-model"
+                                    name="car-model"
+                                    class="form-input"
+                                    placeholder="e.g. Toyota Corolla 2022"
+                                    required
+                                    aria-describedby="error-car-model"
+                                >
+                                <p class="field-error" id="error-car-model" role="alert"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes" class="form-label">
+                                    📝 Special Notes <span class="optional">(Optional)</span>
+                                </label>
+                                <textarea
+                                    id="notes"
+                                    name="notes"
+                                    class="form-input form-textarea"
+                                    placeholder="Any special requests or instructions for our team..."
+                                    rows="3"
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label" for="terms">
+                                    <input type="checkbox" id="terms" name="terms" required aria-describedby="error-terms">
+                                    <span class="checkbox-custom"></span>
+                                    I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and understand that payment is due on arrival.
+                                </label>
+                                <p class="field-error" id="error-terms" role="alert"></p>
+                            </div>
+
+                            <div class="step-nav step-nav-dual">
+                                <button type="button" class="btn btn-outline" id="btn-step3-back">
+                                    ← Back
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-submit" id="btn-submit">
+                                    <span class="btn-text">Confirm Booking ✔</span>
+                                    <span class="btn-spinner" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== FOOTER (identical to index.html) ===== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="navbar-logo">
+                        <span class="logo-icon">🚿</span>
+                        SparkleWash
+                    </a>
+                    <p>
+                        Premium car wash &amp; detailing services.
+                        Book online and let us make your car shine.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">🎬</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Admin</h4>
+                    <ul>
+                        <li><a href="admin-login.html">Admin Login</a></li>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="manage-services.html">Manage Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get notified about new services and exclusive deals.</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SparkleWash Car Wash Booking System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Shared site script -->
+    <script src="../js/main.js"></script>
+    <!-- Booking-specific script (validation + interactivity) -->
+    <script src="../js/booking.js"></script>
+
+</body>
+</html>
