@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnSubmit.classList.remove('loading');
                 btnSubmit.disabled = false;
 
-                // Populate success screen
+               
                 var firstName = document.getElementById('first-name').value.trim();
                 var lastName  = document.getElementById('last-name').value.trim();
                 var dateVal   = document.getElementById('booking-date').value;
