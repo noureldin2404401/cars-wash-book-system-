@@ -1,32 +1,14 @@
-/**
- * dashboard.js — SparkleWash Admin Dashboard
- * Member 4 | Auth Guard + 4 Mock Bookings + Search & Filter
- *
- * - Redirects to admin-login.html if not logged in
- * - 4 mock bookings — one per wash type
- * - Live search by name, email, or phone
- * - Status filter dropdown
- * - Date sort (newest / oldest)
- * - Animated stat card counters
- * - Mobile sidebar toggle
- * - Live clock
- * - Logout button clears session and redirects
- */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ─────────────────────────────────────────────────────
-       1. AUTH GUARD — redirect to login if not logged in
-    ───────────────────────────────────────────────────── */
+  
     if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
         window.location.href = 'admin-login.html';
-        return;  /* stop the rest of the script */
+        return; 
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       2. MOCK BOOKING DATA — 4 bookings, one per wash type
-    ───────────────────────────────────────────────────── */
+  
     var bookings = [
         {
             id: 1,
@@ -79,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
 
-    /* ─────────────────────────────────────────────────────
-       3. ELEMENT REFERENCES
-    ───────────────────────────────────────────────────── */
+  
     var tbody        = document.getElementById('bookings-tbody');
     var searchInput  = document.getElementById('search-input');
     var searchClear  = document.getElementById('search-clear');
@@ -105,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var topbarTime = document.getElementById('topbar-time');
 
 
-    /* ─────────────────────────────────────────────────────
-       4. STAT CARDS (animated counter)
-    ───────────────────────────────────────────────────── */
+    
     function animateCount(el, target) {
         if (!el) return;
         var start   = 0;
@@ -132,9 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       5. RENDER TABLE ROWS
-    ───────────────────────────────────────────────────── */
+ 
     var statusIcons = { Confirmed: '✅', Pending: '⏳', Cancelled: '❌' };
 
     function formatDate(iso) {
@@ -187,9 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       6. FILTER + SEARCH + SORT
-    ───────────────────────────────────────────────────── */
+ 
     function applyFilters() {
         var query  = searchInput  ? searchInput.value.trim().toLowerCase() : '';
         var status = statusFilter ? statusFilter.value : 'all';
@@ -242,9 +216,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       7. LOGOUT
-    ───────────────────────────────────────────────────── */
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function () {
             sessionStorage.removeItem('adminLoggedIn');
@@ -253,9 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       8. MOBILE SIDEBAR TOGGLE
-    ───────────────────────────────────────────────────── */
+  
     function openSidebar()  {
         if (sidebar)        sidebar.classList.add('open');
         if (sidebarOverlay) sidebarOverlay.classList.add('visible');
@@ -270,9 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
 
 
-    /* ─────────────────────────────────────────────────────
-       9. LIVE CLOCK
-    ───────────────────────────────────────────────────── */
+  
     function updateClock() {
         if (!topbarTime) return;
         topbarTime.textContent = new Date().toLocaleTimeString('en-GB', {
@@ -283,9 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateClock();
 
 
-    /* ─────────────────────────────────────────────────────
-       10. INITIAL RENDER
-    ───────────────────────────────────────────────────── */
+   
     applyFilters();
 
 });
