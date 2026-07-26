@@ -1,26 +1,18 @@
-/**
- * admin-login.js — SparkleWash Admin Login Page
- *
- * - Validates that email & password are not empty
- * - Checks credentials: admin@gmail.com / 123456
- * - On success: saves login flag to sessionStorage → redirects to dashboard
- * - On failure: shows inline error banner
- * - Password show/hide toggle
- */
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ── Redirect immediately if already logged in ─────── */
+   
     if (sessionStorage.getItem('adminLoggedIn') === 'true') {
         window.location.href = 'admin-dashboard.html';
         return;
     }
 
-    /* ── Credentials (client-side demo only) ───────────── */
+
     var VALID_EMAIL    = 'admin@gmail.com';
     var VALID_PASSWORD = '123456';
 
-    /* ── Element references ─────────────────────────────── */
+ 
     var form          = document.getElementById('login-form');
     var emailInput    = document.getElementById('admin-email');
     var passwordInput = document.getElementById('admin-password');
@@ -32,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var errorPassword = document.getElementById('error-admin-password');
 
 
-    /* ── Helpers ─────────────────────────────────────────── */
+  
     function showFieldError(el, msg) {
         if (!el) return;
         el.textContent = msg;
@@ -63,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── Password show / hide ────────────────────────────── */
+  
     if (pwToggle && passwordInput) {
         pwToggle.addEventListener('click', function () {
             var isPassword = passwordInput.type === 'password';
@@ -73,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── Clear errors on input ───────────────────────────── */
+   
     if (emailInput) {
         emailInput.addEventListener('input', function () {
             clearFieldError(errorEmail);
@@ -91,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ── Form submit ─────────────────────────────────────── */
+    
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -101,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var password = passwordInput ? passwordInput.value.trim() : '';
             var valid    = true;
 
-            /* Validate email field */
+          
             if (!email) {
                 showFieldError(errorEmail, 'Please enter your email address.');
                 setInputError(emailInput);
@@ -115,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 clearInputError(emailInput);
             }
 
-            /* Validate password field */
+         
             if (!password) {
                 showFieldError(errorPassword, 'Please enter your password.');
                 setInputError(passwordInput);
@@ -127,21 +119,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!valid) return;
 
-            /* Show loading spinner */
+           
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            /* Simulate network delay then check credentials */
             setTimeout(function () {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
                 if (email === VALID_EMAIL && password === VALID_PASSWORD) {
-                    /* ✅ Correct — save session and go to dashboard */
+                  
                     sessionStorage.setItem('adminLoggedIn', 'true');
                     window.location.href = 'admin-dashboard.html';
                 } else {
-                    /* ❌ Wrong credentials */
+                   
                     var msg = 'Invalid email or password. Please try again.';
                     if (email !== VALID_EMAIL) {
                         msg = 'No admin account found with that email.';
