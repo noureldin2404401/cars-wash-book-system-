@@ -12,7 +12,7 @@
 </head>
 <body class="dashboard-page">
 
-    <!-- ===== SIDEBAR (same as dashboard) ===== -->
+  
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-logo">
             <span class="logo-icon">🚿</span>
@@ -60,10 +60,10 @@
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 
-    <!-- ===== MAIN CONTENT ===== -->
+   
     <div class="dashboard-main">
 
-        <!-- Top bar -->
+        
         <header class="dash-topbar">
             <div class="dash-topbar-left">
                 <button class="topbar-menu-btn" id="sidebar-open" aria-label="Open sidebar">☰</button>
@@ -82,12 +82,12 @@
             </div>
         </header>
 
-        <!-- Page content -->
+       
         <div class="dash-content">
 
             <div class="ms-layout">
 
-                <!-- ── LEFT: Add New Service Form ── -->
+               
                 <div class="ms-form-col">
                     <div class="ms-card">
                         <div class="ms-card-header">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <!-- Success alert -->
+                       
                         <div class="ms-alert ms-alert-success" id="form-success" role="alert" aria-live="polite">
                             <span>✅</span>
                             <span id="form-success-text">Service added successfully!</span>
@@ -106,7 +106,7 @@
 
                         <form class="ms-form" id="add-service-form" novalidate>
 
-                            <!-- Service Name -->
+                            
                             <div class="form-group">
                                 <label for="svc-name" class="form-label">
                                     🏷️ Service Name <span class="required">*</span>
@@ -124,7 +124,7 @@
                                 <p class="field-error" id="error-svc-name" role="alert"></p>
                             </div>
 
-                            <!-- Category -->
+                          
                             <div class="form-group">
                                 <label for="svc-category" class="form-label">
                                     📂 Category <span class="required">*</span>
@@ -138,7 +138,7 @@
                                 <p class="field-error" id="error-svc-category" role="alert"></p>
                             </div>
 
-                            <!-- Price -->
+                            
                             <div class="form-group">
                                 <label for="svc-price" class="form-label">
                                     💰 Price (EGP) <span class="required">*</span>
@@ -161,7 +161,7 @@
                                 <p class="field-error" id="error-svc-price" role="alert"></p>
                             </div>
 
-                            <!-- Duration -->
+                           
                             <div class="form-group">
                                 <label for="svc-duration" class="form-label">
                                     ⏱️ Duration (minutes) <span class="required">*</span>
@@ -181,7 +181,7 @@
                                 <p class="field-error" id="error-svc-duration" role="alert"></p>
                             </div>
 
-                            <!-- Icon / Emoji -->
+                            
                             <div class="form-group">
                                 <label for="svc-icon" class="form-label">
                                     🎨 Icon (Emoji) <span class="optional">(Optional)</span>
@@ -196,7 +196,7 @@
                                 >
                             </div>
 
-                            <!-- Description -->
+                           
                             <div class="form-group">
                                 <label for="svc-description" class="form-label">
                                     📝 Description <span class="required">*</span>
@@ -217,7 +217,7 @@
                                 <p class="field-error" id="error-svc-description" role="alert"></p>
                             </div>
 
-                            <!-- Features list -->
+                           
                             <div class="form-group">
                                 <label class="form-label">
                                     ✔ Key Features <span class="required">*</span>
@@ -253,7 +253,7 @@
                     </div>
                 </div>
 
-                <!-- ── RIGHT: Existing Services List ── -->
+                
                 <div class="ms-list-col">
                     <div class="ms-card">
                         <div class="ms-card-header">
@@ -265,7 +265,7 @@
                         </div>
 
                         <div class="services-list" id="services-list">
-                            <!-- Populated by manage-services.js -->
+                           
                         </div>
 
                         <p class="services-empty" id="services-empty" style="display:none;">
@@ -276,8 +276,8 @@
 
             </div>
 
-        </div><!-- /dash-content -->
-    </div><!-- /dashboard-main -->
+        </div>
+    </div>
 
     <script src="../js/main.js"></script>
     <script src="../js/manage-services.js"></script>
