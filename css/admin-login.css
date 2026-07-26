@@ -1,23 +1,17 @@
-/* ============================================================
-   admin-login.css  —  SparkleWash Admin Login Page Styles
-   Member 5 | External CSS file for admin-login.html
-   ============================================================ */
 
-
-/* ── Login page body ─────────────────────────────────────── */
 .admin-login-page {
     background: var(--gray-50);
     min-height: 100vh;
     display: flex;
 }
 
-/* Hide the shared navbar on the login page */
+
 .admin-login-page .navbar {
     display: none;
 }
 
 
-/* ── Full-screen wrapper ─────────────────────────────────── */
+
 .login-wrapper {
     display: flex;
     width: 100%;
@@ -25,7 +19,7 @@
 }
 
 
-/* ── Left branding panel ─────────────────────────────────── */
+
 .login-left {
     flex: 1;
     background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 60%, var(--primary-500) 100%);
@@ -120,7 +114,7 @@
 }
 
 
-/* ── Right form panel ────────────────────────────────────── */
+
 .login-right {
     width: 480px;
     flex-shrink: 0;
@@ -158,7 +152,7 @@
 }
 
 
-/* ── Error banner ────────────────────────────────────────── */
+
 .login-error-banner {
     display: none;
     align-items: center;
@@ -179,7 +173,7 @@
 }
 
 
-/* ── Form elements (reuse style.css variables) ───────────── */
+
 .login-form .form-group {
     margin-bottom: 20px;
 }
@@ -220,7 +214,7 @@
 }
 
 
-/* ── Password field wrapper ──────────────────────────────── */
+
 .password-wrap {
     position: relative;
 }
@@ -249,7 +243,7 @@
 }
 
 
-/* ── Field error messages ────────────────────────────────── */
+
 .field-error {
     font-size: 0.8rem;
     color: var(--error);
@@ -275,7 +269,7 @@
 }
 
 
-/* ── Submit button ───────────────────────────────────────── */
+
 .login-submit-btn {
     width: 100%;
     justify-content: center;
@@ -308,7 +302,7 @@
 }
 
 
-/* ── Back link ───────────────────────────────────────────── */
+
 .login-back-link {
     text-align: center;
     margin-top: 24px;
@@ -327,7 +321,7 @@
 }
 
 
-/* ── Responsive ──────────────────────────────────────────── */
+
 @media (max-width: 860px) {
     .login-left {
         display: none;
