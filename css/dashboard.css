@@ -1,24 +1,16 @@
-/* ============================================================
-   dashboard.css  —  SparkleWash Admin Dashboard Styles
-   Member 4 | External CSS file for admin-dashboard.html
-   ============================================================ */
 
-
-/* ── Dashboard body: no scroll on outer body ─────────────── */
 .dashboard-page {
     background: #f0f4f8;
     overflow-x: hidden;
 }
 
-/* Remove the shared navbar from dashboard pages */
+
 .dashboard-page .navbar {
     display: none;
 }
 
 
-/* ─────────────────────────────────────────────────────────
-   LAYOUT: sidebar + main
-───────────────────────────────────────────────────────── */
+
 
 :root {
     --sidebar-width: 240px;
@@ -33,7 +25,7 @@
     --dash-sidebar-active: rgba(26,122,252,0.2);
 }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -125,7 +117,7 @@
     flex-shrink: 0;
 }
 
-/* Close button (mobile only) */
+
 .sidebar-toggle-btn {
     display: none;
     position: absolute;
@@ -141,7 +133,7 @@
     cursor: pointer;
 }
 
-/* Overlay (mobile only) */
+
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -154,7 +146,7 @@
     display: block;
 }
 
-/* Sidebar bottom logout area */
+
 .sidebar-bottom {
     margin-top: auto;
     padding: 16px 10px 0;
@@ -185,7 +177,7 @@
 }
 
 
-/* ── Main content area ───────────────────────────────────── */
+
 .dashboard-main {
     margin-left: var(--sidebar-width);
     min-height: 100vh;
@@ -195,7 +187,7 @@
 }
 
 
-/* ── Top bar ─────────────────────────────────────────────── */
+
 .dash-topbar {
     position: sticky;
     top: 0;
@@ -284,14 +276,13 @@
 }
 
 
-/* ── Page content ────────────────────────────────────────── */
 .dash-content {
     padding: 32px 28px 60px;
     flex: 1;
 }
 
 
-/* ── Stat cards row ──────────────────────────────────────── */
+
 .stats-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -345,7 +336,7 @@
 }
 
 
-/* ── Table section ───────────────────────────────────────── */
+
 .table-section {
     background: var(--dash-card-bg);
     border: 1px solid var(--dash-border);
@@ -377,7 +368,7 @@
     flex-wrap: wrap;
 }
 
-/* Search input */
+
 .search-wrap {
     position: relative;
     display: flex;
@@ -431,7 +422,7 @@
     display: block;
 }
 
-/* Select dropdowns */
+
 .dash-select {
     padding: 9px 32px 9px 12px;
     border: 1px solid var(--dash-border);
@@ -456,7 +447,7 @@
     background-color: var(--white);
 }
 
-/* Results count text */
+
 .table-results-count {
     padding: 10px 24px;
     font-size: 0.82rem;
@@ -466,7 +457,7 @@
 }
 
 
-/* ── Bookings table ──────────────────────────────────────── */
+
 .table-wrap {
     overflow-x: auto;
 }
@@ -517,7 +508,7 @@
     font-weight: 600;
 }
 
-/* Customer name cell */
+
 .cell-name {
     font-weight: 600;
     color: var(--dash-text) !important;
@@ -528,7 +519,7 @@
     font-size: 0.82rem !important;
 }
 
-/* Status badges */
+
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -554,7 +545,7 @@
     color: #dc2626;
 }
 
-/* Service badges */
+
 .service-badge {
     display: inline-block;
     padding: 3px 10px;
@@ -565,14 +556,14 @@
     color: var(--primary-700);
 }
 
-/* Price cell */
+
 .cell-price {
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--primary-600) !important;
 }
 
-/* Empty state */
+
 .table-empty {
     display: none;
     flex-direction: column;
@@ -597,7 +588,7 @@
 }
 
 
-/* ── Responsive ──────────────────────────────────────────── */
+
 @media (max-width: 1024px) {
     .stats-row {
         grid-template-columns: repeat(2, 1fr);
