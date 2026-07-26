@@ -1,16 +1,10 @@
-/* ============================================================
-   services.css  —  SparkleWash Services Page Styles
-   Member 3 | External CSS file for services.html
-   ============================================================ */
 
-
-/* ── Services page body ──────────────────────────────────── */
 .services-page {
     background: var(--gray-50);
 }
 
 
-/* ── Navbar: scrolled look on interior pages ─────────────── */
+
 .services-page .navbar {
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
@@ -45,7 +39,7 @@
 }
 
 
-/* ── Hero banner ─────────────────────────────────────────── */
+
 .services-hero {
     position: relative;
     padding: 140px 0 70px;
@@ -106,7 +100,7 @@
 }
 
 
-/* ── Filter tabs ─────────────────────────────────────────── */
+
 .services-filters {
     display: flex;
     justify-content: center;
@@ -140,7 +134,7 @@
 }
 
 
-/* ── Services grid ───────────────────────────────────────── */
+
 .services-main {
     background: var(--gray-50);
 }
@@ -152,7 +146,7 @@
 }
 
 
-/* ── Service card ────────────────────────────────────────── */
+
 .srv-card {
     background: var(--white);
     border: 2px solid var(--gray-200);
@@ -166,7 +160,7 @@
     cursor: pointer;
 }
 
-/* Top accent line */
+
 .srv-card::before {
     content: '';
     position: absolute;
@@ -189,7 +183,7 @@
     transform: scaleX(1);
 }
 
-/* Selected state */
+
 .srv-card.selected {
     border-color: var(--primary-500);
     box-shadow: 0 0 0 3px rgba(26, 122, 252, 0.15), var(--shadow-lg);
@@ -200,12 +194,12 @@
     transform: scaleX(1);
 }
 
-/* Hidden state (filtered out) */
+
 .srv-card.hidden {
     display: none;
 }
 
-/* Popular badge */
+
 .srv-card--popular {
     border-color: var(--primary-300);
 }
@@ -224,7 +218,7 @@
 }
 
 
-/* ── Card inner sections ─────────────────────────────────── */
+
 .srv-card-top {
     text-align: center;
     margin-bottom: 24px;
@@ -269,7 +263,7 @@
 }
 
 
-/* ── Feature list ────────────────────────────────────────── */
+
 .srv-features {
     list-style: none;
     display: flex;
@@ -304,7 +298,7 @@
 }
 
 
-/* ── Select button ───────────────────────────────────────── */
+
 .srv-select-btn {
     width: 100%;
     justify-content: center;
@@ -331,7 +325,7 @@
 }
 
 
-/* ── "Selected" overlay badge on card ────────────────────── */
+
 .srv-selected-badge {
     position: absolute;
     top: 14px;
@@ -354,10 +348,10 @@
 }
 
 
-/* ── Sticky selection bar (appears after choosing a service) */
+
 .selection-bar {
     position: fixed;
-    bottom: -100px;           /* starts off-screen */
+    bottom: -100px;          
     left: 0;
     width: 100%;
     background: var(--white);
@@ -465,7 +459,7 @@
 }
 
 
-/* ── Comparison table ────────────────────────────────────── */
+
 .comparison {
     background: var(--white);
 }
@@ -555,7 +549,7 @@
 }
 
 
-/* ── Responsive ──────────────────────────────────────────── */
+
 @media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
