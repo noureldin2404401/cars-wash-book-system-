@@ -1,10 +1,4 @@
-/* ============================================================
-   manage-services.css  —  SparkleWash Manage Services Page
-   Member 5 | External CSS file for manage-services.html
-   ============================================================ */
 
-
-/* ── Two-column layout ───────────────────────────────────── */
 .ms-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -13,7 +7,7 @@
 }
 
 
-/* ── Shared card shell ───────────────────────────────────── */
+
 .ms-card {
     background: var(--white);
     border: 1px solid var(--dash-border, #e2e8f0);
@@ -56,7 +50,7 @@
 }
 
 
-/* ── Success alert banner ────────────────────────────────── */
+
 .ms-alert {
     display: none;
     align-items: center;
@@ -80,7 +74,7 @@
 }
 
 
-/* ── Form layout ─────────────────────────────────────────── */
+
 .ms-form {
     padding: 20px 24px 24px;
 }
@@ -114,7 +108,7 @@
     margin-bottom: 10px;
 }
 
-/* Inputs */
+
 .form-input {
     width: 100%;
     padding: 11px 14px;
@@ -147,7 +141,7 @@
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.09);
 }
 
-/* Select */
+
 .form-select {
     appearance: none;
     -webkit-appearance: none;
@@ -158,14 +152,13 @@
     cursor: pointer;
 }
 
-/* Textarea */
 .form-textarea {
     resize: vertical;
     min-height: 88px;
     line-height: 1.6;
 }
 
-/* Price input with suffix */
+
 .price-input-wrap {
     position: relative;
     display: flex;
@@ -185,7 +178,7 @@
     pointer-events: none;
 }
 
-/* Character counter */
+
 .char-count {
     text-align: right;
     font-size: 0.75rem;
@@ -193,7 +186,7 @@
     margin-top: 4px;
 }
 
-/* Field error */
+
 .field-error {
     font-size: 0.8rem;
     color: var(--error);
@@ -219,7 +212,7 @@
 }
 
 
-/* ── Features list inputs ────────────────────────────────── */
+
 .features-inputs {
     display: flex;
     flex-direction: column;
@@ -281,7 +274,7 @@
 }
 
 
-/* ── Form action buttons ─────────────────────────────────── */
+
 .ms-form-actions {
     display: flex;
     gap: 12px;
@@ -317,7 +310,7 @@
 }
 
 
-/* ── Services list (right panel) ─────────────────────────── */
+
 .ms-list-col {
     position: sticky;
     top: 96px;
@@ -339,7 +332,7 @@
     font-size: 0.9rem;
 }
 
-/* Individual service row card */
+
 .svc-row {
     display: flex;
     align-items: flex-start;
@@ -357,12 +350,12 @@
     box-shadow: var(--shadow-sm);
 }
 
-/* Default / "preset" row style */
+
 .svc-row.preset {
     border-left: 3px solid var(--primary-300);
 }
 
-/* Newly added row style */
+
 .svc-row.added {
     border-left: 3px solid var(--success);
 }
@@ -446,7 +439,7 @@
     background: rgba(239, 68, 68, 0.08);
 }
 
-/* NEW badge on freshly added services */
+
 .svc-new-badge {
     font-size: 0.65rem;
     font-weight: 700;
@@ -458,7 +451,7 @@
 }
 
 
-/* ── Responsive ──────────────────────────────────────────── */
+
 @media (max-width: 1100px) {
     .ms-layout {
         grid-template-columns: 1fr;
