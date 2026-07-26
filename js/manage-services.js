@@ -1,41 +1,13 @@
-/**
- * manage-services.js — SparkleWash Manage Services Page
- * Member 5 | Auth Guard + Form Validation + Dynamic List
- *
- * Validation rules (rubric: 20 pts):
- *  - Service name : not empty, ≥ 3 chars, ≤ 60 chars, letters/numbers only
- *  - Category     : must select one from the dropdown
- *  - Price        : must be a positive whole number between 1 – 99999
- *  - Duration     : must be a positive whole number between 5 – 480 minutes
- *  - Description  : not empty, ≥ 10 chars
- *  - Features     : at least 2 non-empty feature rows
- *
- * Other features:
- *  - Auth guard: redirects to admin-login.html if not logged in
- *  - Pre-loads the 4 default SparkleWash services into the list
- *  - Add new service → appends a card to the list with a "NEW" badge
- *  - Delete button removes a service from the list
- *  - Dynamic "Add Feature" rows (max 8)
- *  - Character counter on description textarea
- *  - Live clock in topbar
- *  - Mobile sidebar toggle
- *  - Logout button
- */
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ─────────────────────────────────────────────────────
-       1. AUTH GUARD
-    ───────────────────────────────────────────────────── */
     if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
         window.location.href = 'admin-login.html';
         return;
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       2. ELEMENT REFERENCES
-    ───────────────────────────────────────────────────── */
     var form           = document.getElementById('add-service-form');
     var submitBtn      = document.getElementById('ms-submit');
     var resetFormBtn   = document.getElementById('reset-form-btn');
@@ -56,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var sidebarOverlay = document.getElementById('sidebar-overlay');
 
 
-    /* ─────────────────────────────────────────────────────
-       3. PRE-LOADED DEFAULT SERVICES
-    ───────────────────────────────────────────────────── */
+    
     var defaultServices = [
         {
             name:     'Basic Wash',
@@ -95,9 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
 
-    /* ─────────────────────────────────────────────────────
-       4. VALIDATION HELPERS
-    ───────────────────────────────────────────────────── */
+   
     function showError(id, msg) {
         var el = document.getElementById(id);
         if (!el) return;
@@ -125,13 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       5. FORM VALIDATION
-    ───────────────────────────────────────────────────── */
+    
     function validateForm() {
         var valid = true;
 
-        /* ── Service name ── */
+      
         var nameEl  = document.getElementById('svc-name');
         var nameVal = nameEl ? nameEl.value.trim() : '';
         if (!nameVal) {
@@ -150,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearError('error-svc-name'); setOk(nameEl);
         }
 
-        /* ── Category ── */
+        
         var catEl  = document.getElementById('svc-category');
         var catVal = catEl ? catEl.value : '';
         if (!catVal) {
@@ -160,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearError('error-svc-category'); setOk(catEl);
         }
 
-        /* ── Price ── */
+       
         var priceEl  = document.getElementById('svc-price');
         var priceVal = priceEl ? priceEl.value.trim() : '';
         var priceNum = Number(priceVal);
@@ -180,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearError('error-svc-price'); setOk(priceEl);
         }
 
-        /* ── Duration ── */
+    
         var durEl  = document.getElementById('svc-duration');
         var durVal = durEl ? durEl.value.trim() : '';
         var durNum = Number(durVal);
@@ -200,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearError('error-svc-duration'); setOk(durEl);
         }
 
-        /* ── Description ── */
+      
         var descEl  = document.getElementById('svc-description');
         var descVal = descEl ? descEl.value.trim() : '';
         if (!descVal) {
@@ -213,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
             clearError('error-svc-description'); setOk(descEl);
         }
 
-        /* ── Features — at least 2 non-empty rows ── */
+        
         var featureInputs = featuresWrap ? featuresWrap.querySelectorAll('.feature-input') : [];
         var filledFeatures = [];
         featureInputs.forEach(function (inp) {
@@ -231,9 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       6. RENDER A SERVICE ROW
-    ───────────────────────────────────────────────────── */
+
     function renderServiceRow(svc, isNew) {
         var row = document.createElement('div');
         row.className = 'svc-row ' + (isNew ? 'added' : 'preset');
@@ -254,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             '</div>' +
             '<button class="svc-delete-btn" aria-label="Delete ' + escapeHtml(svc.name) + '">🗑️</button>';
 
-        /* Delete button */
+       
         var deleteBtn = row.querySelector('.svc-delete-btn');
         deleteBtn.addEventListener('click', function () {
             row.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
@@ -284,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/"/g, '&quot;');
     }
 
-    /* Load default services on page start */
+    
     if (servicesList) {
         defaultServices.forEach(function (svc) {
             servicesList.appendChild(renderServiceRow(svc, false));
@@ -293,9 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       7. FORM SUBMIT
-    ───────────────────────────────────────────────────── */
+   
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -304,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!validateForm()) return;
 
-            /* Loading state */
+           
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
@@ -312,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
-                /* Gather values */
+                
                 var iconEl = document.getElementById('svc-icon');
                 var newSvc = {
                     name:     document.getElementById('svc-name').value.trim(),
@@ -323,26 +285,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     desc:     document.getElementById('svc-description').value.trim()
                 };
 
-                /* Add to list */
+              
                 if (servicesList) {
                     servicesList.insertBefore(renderServiceRow(newSvc, true), servicesList.firstChild);
                     checkEmpty();
 
-                    /* Scroll list into view */
+                    
                     servicesList.scrollTo({ top: 0, behavior: 'smooth' });
                 }
 
-                /* Show success alert */
+               
                 if (successText) successText.textContent = '"' + newSvc.name + '" has been added successfully!';
                 if (successAlert) successAlert.classList.add('visible');
 
-                /* Reset form */
+               
                 form.reset();
                 resetFeatureRows();
                 if (charCount) charCount.textContent = '0';
                 clearAllStates();
 
-                /* Auto-hide success after 4 seconds */
+               
                 setTimeout(function () {
                     if (successAlert) successAlert.classList.remove('visible');
                 }, 4000);
@@ -352,9 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       8. RESET FORM
-    ───────────────────────────────────────────────────── */
+    
     function clearAllStates() {
         form.querySelectorAll('.form-input').forEach(function (inp) {
             clearState(inp);
@@ -376,9 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       9. DYNAMIC FEATURE ROWS
-    ───────────────────────────────────────────────────── */
+   
     var MAX_FEATURES = 8;
 
     function resetFeatureRows() {
@@ -433,13 +391,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* Initialise with 2 feature rows */
+    
     resetFeatureRows();
 
 
-    /* ─────────────────────────────────────────────────────
-       10. CHARACTER COUNTER FOR DESCRIPTION
-    ───────────────────────────────────────────────────── */
+  
     if (descTextarea && charCount) {
         descTextarea.addEventListener('input', function () {
             charCount.textContent = descTextarea.value.length;
@@ -447,9 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       11. LIVE INLINE VALIDATION (clear errors on input)
-    ───────────────────────────────────────────────────── */
+   
     var liveFields = ['svc-name', 'svc-category', 'svc-price', 'svc-duration', 'svc-description'];
     var errorIds   = ['error-svc-name', 'error-svc-category', 'error-svc-price', 'error-svc-duration', 'error-svc-description'];
 
@@ -467,9 +421,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* ─────────────────────────────────────────────────────
-       12. LIVE CLOCK
-    ───────────────────────────────────────────────────── */
     function updateClock() {
         if (!topbarTime) return;
         topbarTime.textContent = new Date().toLocaleTimeString('en-GB', {
@@ -480,9 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateClock();
 
 
-    /* ─────────────────────────────────────────────────────
-       13. LOGOUT
-    ───────────────────────────────────────────────────── */
+ 
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function () {
             sessionStorage.removeItem('adminLoggedIn');
@@ -491,9 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ─────────────────────────────────────────────────────
-       14. MOBILE SIDEBAR TOGGLE
-    ───────────────────────────────────────────────────── */
+    
     function openSidebar()  {
         if (sidebar)        sidebar.classList.add('open');
         if (sidebarOverlay) sidebarOverlay.classList.add('visible');
