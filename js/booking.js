@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var currentStep = 1;
 
-
    
     function getTodayString() {
         var d = new Date();
